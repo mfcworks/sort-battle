@@ -10,11 +10,10 @@ public class RandomGenerator {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("要素数を入力してください: ");
+		System.out.print("要素数を入力してください: ");
 		int n = sc.nextInt();
 
 		try {
-			@SuppressWarnings("resource")
 			FileWriter fw = new FileWriter(FILE_NAME);
 
 			Random random = new Random();
@@ -27,6 +26,8 @@ public class RandomGenerator {
 			for (int i = 0; i < n; i++) {
 				fw.write(Integer.toString(random.nextInt(n * 2)) + newLine);
 			}
+
+			fw.close();
 		} catch (IOException e) {
 			System.out.println("ファイルの書き込み中にエラーが発生しました。");
 			System.exit(1);
