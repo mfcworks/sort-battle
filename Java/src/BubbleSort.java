@@ -22,7 +22,7 @@ public class BubbleSort {
 
 	public static boolean isSorted(int[] x) {
 		for (int i = 0; i < x.length - 1; i++) {
-			if (x[i] < x[i+1])
+			if (x[i] > x[i+1])
 				return false;
 		}
 		return true;
@@ -51,6 +51,7 @@ public class BubbleSort {
 		long start = System.currentTimeMillis();
 		bubbleSort(x);
 		long end = System.currentTimeMillis();
+		assert isSorted(x);
 		System.out.println("経過時間 " + (end - start) + "ms");
 	}
 
